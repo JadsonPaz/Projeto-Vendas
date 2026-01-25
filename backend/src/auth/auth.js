@@ -97,12 +97,10 @@ authRouter.post('/signup', async(req, res) => {
 
 authRouter.post('/login', (req, res) => {
     passport.authenticate('local', (error, user) => {
-        if(error) {
+        if(error){
             return res.status(500).send({
-                success: false,
-                statusCode: 500,
-                body: {
-                    text: 'Error during authentication',
+                body:{
+                    text: 'error during authentication',
                     error
                 }
             })
@@ -112,23 +110,26 @@ authRouter.post('/login', (req, res) => {
             return res.status(400).send({
                 success: false,
                 statusCode: 400,
-                body: {
-                    text: 'Credentials are not correct',
+                body:{
+                    text: 'user not found',
+                    error
                 }
-            })  
+            })
         }
 
         const token = jwt.sign(user, 'secret')
         return res.status(200).send({
             success: true,
             statusCode: 200,
-            body: {
-                text: 'User logged in correctly',
+            body:{
+                text: 'user logged in',
                 user,
                 token
             }
-        })  
+        })
+
     })(req, res)
+
 })
 
 export default authRouter
