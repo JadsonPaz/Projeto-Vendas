@@ -1,13 +1,11 @@
-
-
+import Navbar from "./components/navbar/navbar.jsx"
+import { Outlet } from "react-router-dom"
 
 export default function App() {
-
     return(
         <>
-            <h1>Welcome to the E-commerce App</h1>
+            <Navbar />
+            <Outlet />
         </>
     )
-
 }
-
