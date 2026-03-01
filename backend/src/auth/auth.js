@@ -118,6 +118,7 @@ authRouter.post('/login', (req, res) => {
         }
 
         const token = jwt.sign(user, 'secret')
+        console.log(user)
         return res.status(200).send({
             success: true,
             statusCode: 200,
