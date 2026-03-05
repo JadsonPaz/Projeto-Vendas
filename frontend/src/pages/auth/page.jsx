@@ -17,11 +17,10 @@ export default function Auth() {
     const authData = JSON.parse(localStorage.getItem('auth'))
     
     useEffect(() => {
-        if (authData) {
-            return navigate('/profile')
-        }
+    if (authData) {
+        navigate('/profile') // sem return
+    }
     }, [authData])
-
 
 
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export default function authServices() {
     const [authLoading, setAuthLoading] = useState(false)
@@ -23,6 +24,7 @@ export default function authServices() {
                     'auth',
                     JSON.stringify({ token: result.body.token, user: result.body.user })
                 )
+                navigate('/profile') // sem return
             }
         })
         .catch((error) => {
