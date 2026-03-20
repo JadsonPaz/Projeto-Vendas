@@ -91,7 +91,7 @@ export default function Auth() {
                         name="password"
                         onChange={handleFormDataChange}
                     />
-                    <Button type="submit">Login</Button>
+                    <button type="submit">Login<LuLogIn /></button>
                 </form>
             </div>
         )
@@ -101,29 +101,6 @@ export default function Auth() {
     if (formType === 'signup') {
         return (
             <div className={styles.authPageContainer}>
-            {formType === 'login' ? (
-                <>
-                    <h1>Login</h1>
-                    <button onClick={handleChangeFormType}>Não tem uma conta? Cadastre-se</button>
-                    <form onSubmit={handleSubmitForm}>
-                        <TextField 
-                        required
-                        label="Email"
-                        type="email"
-                        name="email"
-                        onChange={handleFormDataChange}
-                        />
-                        <TextField 
-                        required
-                        label="Password"
-                        type="password"
-                        name="password"
-                        onChange={handleFormDataChange}
-                        />
-                        <button type="submit">Login<LuLogIn /></button>
-                    </form>
-                </>
-            ) : null}
 
             {formType === 'signup' ? (
                 <>

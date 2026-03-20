@@ -1,0 +1,82 @@
+.footerContainer {
+    background-color: #004643;
+    color: #faf0ca;
+    padding: 3em 2em 1em;
+}
+
+/* GRID PRINCIPAL */
+.footerContent {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ESQUERDA */
+.brand img {
+    width: 8em;
+    margin-bottom: 0.5em;
+}
+
+.brand h2 {
+    margin: 0.3em 0;
+}
+
+.brand p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 300px;
+}
+
+/* MEIO */
+.linksSection h3 {
+    margin-bottom: 0.5em;
+}
+
+.linksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+/* DIREITA */
+.contact h3 {
+    margin-bottom: 0.5em;
+}
+
+.contact p {
+    margin: 0.2em 0;
+    font-size: 0.9rem;
+}
+
+/* LINKS */
+.link {
+    color: #faf0ca;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.link:hover {
+    opacity: 0.7;
+}
+
+/* LINHA FINAL */
+.bottom {
+    border-top: 1px solid rgba(250, 240, 202, 0.2);
+    margin-top: 2em;
+    padding-top: 1em;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .footerContent {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .brand p {
+        margin: 0 auto;
+    }
+}   
