@@ -61,7 +61,7 @@ authRouter.post('/signup', async(req, res) => {
                 success: false,
                 statusCode: 500,
                 body: {
-                    text: 'User already exists'
+                    text: 'Error during password hashing'
                 }
             })
         }
@@ -73,6 +73,7 @@ authRouter.post('/signup', async(req, res) => {
             email: req.body.email,
             password: hashedPassword,
             salt,
+            role: 'user'
         })
 
         if(result.insertedId) {
@@ -117,7 +118,10 @@ authRouter.post('/login', (req, res) => {
             })
         }
 
-        const token = jwt.sign(user, 'secret')
+        const token = jwt.sign(
+            { id: user._id, role: user.role },  
+            process.env.JWT_SECRET, 
+            {expiresIn: '1d'})
         console.log(user)
         return res.status(200).send({
             success: true,
